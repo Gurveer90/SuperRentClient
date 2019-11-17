@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import packagesuperrent.databse.DatabaseConnectionHandler;
-import packagesuperrent.databse.DatabaseKeys;
+import packagesuperrent.database.DatabaseConnectionHandler;
+import packagesuperrent.database.DatabaseKeys;
 
 public class Main extends Application {
 
