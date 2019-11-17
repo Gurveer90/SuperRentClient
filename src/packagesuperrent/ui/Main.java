@@ -19,6 +19,11 @@ public class Main extends Application {
         DatabaseConnectionHandler databaseConnectionHandler = new DatabaseConnectionHandler();
         databaseConnectionHandler.login(DatabaseKeys.DatabaseUserName, DatabaseKeys.DatabaseUserPassword);
         databaseConnectionHandler.insert();
+        databaseConnectionHandler.read();
+        databaseConnectionHandler.update();
+        databaseConnectionHandler.delete();
+        databaseConnectionHandler.close();
+
     }
 
 

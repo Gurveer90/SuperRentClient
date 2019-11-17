@@ -1,9 +1,7 @@
 package packagesuperrent.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
@@ -82,6 +80,62 @@ public class DatabaseConnectionHandler {
         }
     }
 
+    public  void read() {
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM student1");
+
+            //50
+            //1
+
+
+
+//    		// get info on ResultSet
+//    		ResultSetMetaData rsmd = rs.getMetaData();
+//
+//    		System.out.println(" ");
+//
+//    		// display column names;
+//    		for (int i = 0; i < rsmd.getColumnCount(); i++) {
+//    			// get column name and print it
+//    			System.out.printf("%-15s", rsmd.getColumnName(i + 1));
+//    		}
+
+            while(rs.next()) {
+                //printout
+                System.out.println(rs.getString("sname"));
+                System.out.println(rs.getInt("sid"));
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+
+    }
+    public void update() {
+        try {
+            PreparedStatement ps = connection.prepareStatement("UPDATE student1 SET sid = 3 WHERE sname = 'dfg' ");
+            ps.executeUpdate();
+            connection.commit();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+    }
+    public void delete() {
+        try {
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM student1 WHERE sid = 3");
+            ps.executeUpdate();
+            connection.commit();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+    }
     private void rollbackConnection() {
         try  {
             connection.rollback();
