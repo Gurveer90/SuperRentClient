@@ -12,18 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+
+        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        primaryStage.setTitle("SuperRent Client");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-        DatabaseConnectionHandler databaseConnectionHandler = new DatabaseConnectionHandler();
-        databaseConnectionHandler.login(DatabaseKeys.DatabaseUserName, DatabaseKeys.DatabaseUserPassword);
-        databaseConnectionHandler.insert();
-        databaseConnectionHandler.read();
-        databaseConnectionHandler.update();
-        databaseConnectionHandler.delete();
-        databaseConnectionHandler.close();
-
     }
 
 

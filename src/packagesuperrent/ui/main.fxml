@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" prefWidth="112.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.mainController">
+   <children>
+      <Button mnemonicParsing="false" onAction="#AddButtonClick" prefHeight="26.0" prefWidth="43.0" text="Add" />
+      <Button mnemonicParsing="false" onAction="#EditButtonClick" prefHeight="26.0" prefWidth="42.0" text="Edit" GridPane.rowIndex="1" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

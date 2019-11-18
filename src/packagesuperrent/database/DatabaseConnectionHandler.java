@@ -68,9 +68,11 @@ public class DatabaseConnectionHandler {
         }
     }
 
-    public void insert() {
+    public void insert(String name, String id) {
         try {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO student1 VALUES ('dfg',2)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO student1 VALUES (?,?)");
+            ps.setString(1, name);
+            ps.setInt(2, Integer.parseInt(id));
             ps.executeUpdate();
             connection.commit();
             ps.close();
