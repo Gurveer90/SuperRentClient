@@ -1,5 +1,7 @@
 package packagesuperrent.database;
 
+import packagesuperrent.classes.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -9,6 +11,7 @@ import com.jcraft.jsch.Session;
 /**
  * This class handles all database related transactions
  */
+
 public class DatabaseConnectionHandler {
     private static final String ORACLE_URL = "jdbc:oracle:thin:@localhost:4321:stu";
     private static final String EXCEPTION_TAG = "[EXCEPTION]";
@@ -81,44 +84,11 @@ public class DatabaseConnectionHandler {
             rollbackConnection();
         }
     }
-
-    public  void read() {
-
+    public void update(String name, String id) {
         try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM student1");
-
-            //50
-            //1
-
-
-
-//    		// get info on ResultSet
-//    		ResultSetMetaData rsmd = rs.getMetaData();
-//
-//    		System.out.println(" ");
-//
-//    		// display column names;
-//    		for (int i = 0; i < rsmd.getColumnCount(); i++) {
-//    			// get column name and print it
-//    			System.out.printf("%-15s", rsmd.getColumnName(i + 1));
-//    		}
-
-            while(rs.next()) {
-                //printout
-                System.out.println(rs.getString("sname"));
-                System.out.println(rs.getInt("sid"));
-            }
-            rs.close();
-            stmt.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-        }
-
-    }
-    public void update() {
-        try {
-            PreparedStatement ps = connection.prepareStatement("UPDATE student1 SET sid = 3 WHERE sname = 'dfg' ");
+            PreparedStatement ps = connection.prepareStatement("UPDATE student1 SET sname = ? WHERE sid = ?");
+            ps.setString(1, name);
+            ps.setInt(2, Integer.parseInt(id));
             ps.executeUpdate();
             connection.commit();
             ps.close();
@@ -127,6 +97,24 @@ public class DatabaseConnectionHandler {
             rollbackConnection();
         }
     }
+
+    public ArrayList<Student>  read() {
+        ArrayList<Student> list = new ArrayList<Student>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM student1");
+
+            while(rs.next()) {
+                list.add(new Student(rs.getString("sname"),rs.getInt("sid") ));
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+        return list;
+    }
+
     public void delete() {
         try {
             PreparedStatement ps = connection.prepareStatement("DELETE FROM student1 WHERE sid = 3");
