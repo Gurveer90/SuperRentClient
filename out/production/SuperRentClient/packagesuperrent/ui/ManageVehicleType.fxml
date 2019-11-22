@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="262.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.ManageVehicleTypeController">
+   <children>
+      <TextField fx:id="vtname" layoutX="20.0" layoutY="26.0" promptText="Vehicle Type Name" />
+      <TextField fx:id="features" layoutX="20.0" layoutY="68.0" promptText="Features" />
+      <TextField fx:id="wrate" layoutX="418.0" layoutY="105.0" promptText="Weekly Rate" />
+      <TextField fx:id="drate" layoutX="223.0" layoutY="105.0" promptText="Daily Rate" />
+      <TextField fx:id="hrate" layoutX="20.0" layoutY="105.0" promptText="Hourly Rate" />
+      <TextField fx:id="wirate" layoutX="418.0" layoutY="68.0" promptText="Weekly Insurance" />
+      <TextField fx:id="dirate" layoutX="223.0" layoutY="68.0" promptText="Daily Insurance" />
+      <TextField fx:id="hirate" layoutX="223.0" layoutY="26.0" promptText="Hourly Insurance" />
+      <TextField fx:id="krate" layoutX="418.0" layoutY="26.0" promptText="Km Rate" />
+      <Button layoutX="288.0" layoutY="138.0" mnemonicParsing="false" onAction="#AddVehicleType" text="Add" />
+      <Button layoutX="251.0" layoutY="228.0" mnemonicParsing="false" onAction="#DisplayVehicleType" text="Display Vehicle Types" />
+      <Separator layoutY="218.0" prefHeight="4.0" prefWidth="575.0" />
+      <TextField fx:id="dvtype" layoutX="20.0" layoutY="179.0" promptText="Vehicle Type" />
+      <Button layoutX="281.0" layoutY="179.0" mnemonicParsing="false" onAction="#DeleteVehicleType" text="Delete" />
+      <Separator layoutX="6.0" layoutY="167.0" prefHeight="4.0" prefWidth="563.0" />
+
+   </children>
+</AnchorPane>

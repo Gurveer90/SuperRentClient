@@ -71,24 +71,18 @@ public class DatabaseConnectionHandler {
         }
     }
 
-    public void insert(String name, String id) {
+    public void insertVehicleType(VehicleType obj) {
         try {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO student1 VALUES (?,?)");
-            ps.setString(1, name);
-            ps.setInt(2, Integer.parseInt(id));
-            ps.executeUpdate();
-            connection.commit();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-            rollbackConnection();
-        }
-    }
-    public void update(String name, String id) {
-        try {
-            PreparedStatement ps = connection.prepareStatement("UPDATE student1 SET sname = ? WHERE sid = ?");
-            ps.setString(1, name);
-            ps.setInt(2, Integer.parseInt(id));
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO VehicleType VALUES (?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, obj.getVtname());
+            ps.setString(2, obj.getFeatures());
+            ps.setFloat(3, obj.getWrate());
+            ps.setFloat(4, obj.getDrate());
+            ps.setFloat(5, obj.getHrate());
+            ps.setFloat(6, obj.getWirate());
+            ps.setFloat(7, obj.getDirate());
+            ps.setFloat(8, obj.getHirate());
+            ps.setFloat(9, obj.getKrate());
             ps.executeUpdate();
             connection.commit();
             ps.close();
@@ -98,14 +92,29 @@ public class DatabaseConnectionHandler {
         }
     }
 
-    public ArrayList<Student>  read() {
-        ArrayList<Student> list = new ArrayList<Student>();
+    public void deleteVehicleType(String text) {
+        try {
+            PreparedStatement ps = connection.prepareStatement("delete from VehicleType where vtname = ?");
+            ps.setString(1, text);
+            ps.executeUpdate();
+            connection.commit();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+    }
+    public ArrayList<VehicleType>  getVehicleTypes() {
+        ArrayList<VehicleType> list = new ArrayList<VehicleType>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM student1");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM VehicleType");
 
             while(rs.next()) {
-                list.add(new Student(rs.getString("sname"),rs.getInt("sid") ));
+                list.add(new VehicleType(rs.getString("vtname"),rs.getString("features"),
+                        rs.getFloat("wrate"),  rs.getFloat("drate"),  rs.getFloat("hrate"),
+                                rs.getFloat("wirate"),  rs.getFloat("dirate"),
+                                        rs.getFloat("hirate"), rs.getFloat("krate")));
             }
             rs.close();
             stmt.close();
@@ -115,17 +124,6 @@ public class DatabaseConnectionHandler {
         return list;
     }
 
-    public void delete() {
-        try {
-            PreparedStatement ps = connection.prepareStatement("DELETE FROM student1 WHERE sid = 3");
-            ps.executeUpdate();
-            connection.commit();
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-            rollbackConnection();
-        }
-    }
     private void rollbackConnection() {
         try  {
             connection.rollback();
