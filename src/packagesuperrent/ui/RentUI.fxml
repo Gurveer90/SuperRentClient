@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMouseEntered="#addChoices" prefHeight="422.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.RentController">
+   <children>
+       <ChoiceBox fx:id="clerkCity" layoutX="142.0" layoutY="7.0" prefHeight="26.0" prefWidth="168.0" />
+       <ChoiceBox fx:id="clerkLocation" layoutX="456.0" layoutY="7.0" prefHeight="26.0" prefWidth="168.0" />
+      <TextField fx:id="ConfNo" layoutX="120.0" layoutY="47.0" />
+      <Label layoutX="5.0" layoutY="49.0" text="Confirmation No." />
+      <Label layoutX="5.0" layoutY="87.0" text="Credit Card Name" />
+      <ChoiceBox fx:id="CardName" layoutX="120.0" layoutY="87.0" prefWidth="150.0" />
+      <Label layoutX="5.0" layoutY="133.0" text="Credit Card No." />
+      <TextField fx:id="CardNo" layoutX="120.0" layoutY="129.0" />
+      <TextField fx:id="ExpDate" layoutX="120.0" layoutY="166.0" />
+      <Label layoutX="5.0" layoutY="173.0" text="Card Exp. Date" />
+       <Button layoutX="737.0" layoutY="274.0" mnemonicParsing="false" onAction="#rentButtonClicked" prefHeight="26.0" prefWidth="95.0" text="Rent Vehicle" />
+       <TableView fx:id="viewTable" layoutX="290.0" layoutY="45.0" prefHeight="218.0" prefWidth="550.0">
+       </TableView>
+      <Button layoutX="119.0" layoutY="211.0" mnemonicParsing="false" onAction="#SearchButtonClicked" prefHeight="26.0" prefWidth="149.0" text="Show Available Vehicles" />
+      <Label layoutX="75.0" layoutY="11.0" text="Clerk City" />
+      <Label layoutX="365.0" layoutY="12.0" text="Clerk Location" />
+      <Separator layoutX="10.0" layoutY="34.0" prefHeight="6.0" prefWidth="727.0" />
+      <Label fx:id="messageText" layoutX="412.0" layoutY="366.0" prefHeight="18.0" prefWidth="214.0" />
+      <Label fx:id="calculation" layoutX="14.0" layoutY="300.0" prefHeight="98.0" prefWidth="238.0" />
+       <Button layoutX="689.0" layoutY="310.0" mnemonicParsing="false" onAction="#DisplayRentals" prefHeight="26.0" prefWidth="150.0" text="Display Rented Vehicles" />
+       <TextField fx:id="dl" layoutX="338.0" layoutY="278.0" promptText="Driver License" />
+      <Button layoutX="741.0" layoutY="391.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Delete Rental" onAction="#deleteButtonClicked" />
+      <TextField layoutX="570.0" layoutY="391.0" fx:id="rentNo" promptText="Rent No"/>
+   </children>
+</AnchorPane>

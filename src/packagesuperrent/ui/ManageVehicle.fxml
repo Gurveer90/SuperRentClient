@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMouseEntered="#mouseEntered" prefHeight="269.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.ManageVehicleController">
+    <children>
+        <TextField fx:id="vlicense" layoutX="20.0" layoutY="26.0" promptText="Vehicle License" />
+        <TextField fx:id="make" layoutX="20.0" layoutY="68.0" promptText="Vehicle Make" />
+        <TextField fx:id="model" layoutX="20.0" layoutY="105.0" promptText="Vehicle Model" />
+        <TextField fx:id="vyear" layoutX="411.0" layoutY="68.0" promptText="Year" />
+        <TextField fx:id="color" layoutX="411.0" layoutY="26.0" promptText="Color" />
+        <TextField fx:id="odometer" layoutX="223.0" layoutY="105.0" promptText="Odometer" />
+        <TextField fx:id="vstatus" layoutX="223.0" layoutY="26.0" promptText="Status" />
+        <TextField fx:id="vlocation" layoutX="411.0" layoutY="105.0" promptText="Location" />
+        <TextField fx:id="city" layoutX="223.0" layoutY="68.0" promptText="City" />
+        <Button layoutX="594.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddVehicle" prefHeight="19.0" prefWidth="92.0" text="Add" />
+        <Button layoutX="20.0" layoutY="229.0" mnemonicParsing="false" onAction="#DisplayVehicle" prefHeight="26.0" prefWidth="149.0" text="Display Vehicles" />
+        <Separator layoutY="218.0" prefHeight="4.0" prefWidth="344.0" />
+        <TextField fx:id="vdlicense" layoutX="20.0" layoutY="179.0" promptText="Vehicle License" />
+        <Button layoutX="198.0" layoutY="179.0" mnemonicParsing="false" onAction="#DeleteVehicle" prefHeight="26.0" prefWidth="117.0" text="Delete" />
+        <Separator layoutX="6.0" layoutY="167.0" prefHeight="4.0" prefWidth="694.0" />
+        <ChoiceBox fx:id="vtypename" layoutX="19.0" layoutY="139.0" prefWidth="150.0" />
+      <Separator layoutX="344.0" layoutY="169.0" orientation="VERTICAL" prefHeight="98.0" prefWidth="8.0" />
+      <TextField fx:id="vL" layoutX="360.0" layoutY="179.0" prefHeight="26.0" prefWidth="102.0" promptText="Vehicle License" />
+      <TextField fx:id="vC"  layoutX="475.0" layoutY="179.0" prefHeight="26.0" prefWidth="92.0" promptText="Field" />
+      <TextField fx:id="vCV" layoutX="581.0" layoutY="179.0" prefHeight="26.0" prefWidth="118.0" promptText="Value" />
+      <Button layoutX="360.0" layoutY="230.0" mnemonicParsing="false" onAction="#UpdateVehicle" text="Update" />
+    </children>
+</AnchorPane>

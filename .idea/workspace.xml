@@ -71,6 +71,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1TgkSiUm1OWhxISqrecFTrbHABI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -94,6 +95,12 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\inder\Documents\GitHub\SelfPrivate\SuperRentClient\src\packagesuperrent\ui" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="packagesuperrent.controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\inder\Documents\GitHub\SuperRentClient\src\packagesuperrent\ui" />
       <recent name="C:\Users\inder\Documents\GitHub\SuperRentClient\src\packagesuperrent\controllers" />
@@ -200,6 +207,11 @@
       <workItem from="1574345721140" duration="12076000" />
       <workItem from="1574406151057" duration="1755000" />
       <workItem from="1574432111495" duration="1872000" />
+      <workItem from="1574434405438" duration="21342000" />
+      <workItem from="1574485022911" duration="49688000" />
+      <workItem from="1574564414511" duration="34388000" />
+      <workItem from="1574630882924" duration="9532000" />
+      <workItem from="1574641052597" duration="107000" />
     </task>
     <servers />
   </component>
@@ -227,44 +239,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/controllers/ReservationController.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

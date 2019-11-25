@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMouseEntered="#RetrunMouseEntered" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.ReturnController">
+    <children>
+        <TextField fx:id="rID" layoutX="108.0" layoutY="24.0" promptText="Rent ID" />
+        <TextField fx:id="rOdoMeter" layoutX="107.0" layoutY="63.0" promptText="Odomoter" />
+        <TextField fx:id="rTank" layoutX="105.0" layoutY="203.0" promptText="Tank Level" />
+        <Label layoutX="10.0" layoutY="112.0" text="Date" />
+        <Label layoutX="8.0" layoutY="159.0" text="Time hh:mm:ss" />
+
+        <DatePicker fx:id="toDate" layoutX="105.0" layoutY="107.0" prefHeight="26.0" prefWidth="168.0" />
+        <Spinner fx:id="toHourTime" layoutX="105.0" layoutY="151.0" prefHeight="26.0" prefWidth="55.0" />
+        <Spinner fx:id="toMinuteTime" layoutX="159.0" layoutY="151.0" prefHeight="26.0" prefWidth="55.0" />
+        <Spinner fx:id="toSecondTime" layoutX="217.0" layoutY="151.0" prefHeight="26.0" prefWidth="55.0" />
+
+        <Label layoutX="369.0" layoutY="33.0" text="Message" />
+        <Label fx:id="messageText" layoutX="421.0" layoutY="32.0" text=":" />
+        <Button layoutX="105.0" layoutY="252.0" mnemonicParsing="false" onAction="#ReturnVehicle" text="Return" />
+        <Button layoutX="600.0" layoutY="287.0" mnemonicParsing="false" onAction="#ReturnedVehicle" text="Returned Vehicles List" />
+      <Label layoutX="13.0" layoutY="28.0" text="Rent Id" />
+      <Label layoutX="10.0" layoutY="67.0" text="Odometer" />
+      <Label layoutX="11.0" layoutY="207.0" text="Gas Rank" />
+    </children>
+</AnchorPane>

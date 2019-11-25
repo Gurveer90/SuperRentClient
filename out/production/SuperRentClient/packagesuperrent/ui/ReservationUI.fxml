@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMouseEntered="#ReservationMouseEntered" prefHeight="600.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.ReservationController">
+   <children>
+      <Label layoutX="20.0" layoutY="26.0" text="Select City" />
+      <ChoiceBox fx:id="city" layoutX="163.0" layoutY="22.0" prefHeight="26.0" prefWidth="168.0" />
+       <ChoiceBox fx:id="locationType" layoutX="162.0" layoutY="77.0" prefHeight="26.0" prefWidth="168.0" />
+       <ChoiceBox fx:id="vehicleType" layoutX="162.0" layoutY="126.0" prefHeight="26.0" prefWidth="168.0" />
+      <Label layoutX="20.0" layoutY="82.0" text="Select Location" />
+      <Label layoutX="20.0" layoutY="130.0" text="Select Vehicle Type" />
+      <Label layoutX="20.0" layoutY="174.0" text="Pickup Date" />
+      <Label layoutX="20.0" layoutY="269.0" text="Return Date" />
+      <Label layoutX="410.0" layoutY="361.0" text="Message" />
+      <Label fx:id="messageText" layoutX="475.0" layoutY="361.0" text="Select Filters" />
+      <DatePicker fx:id="fromDate" layoutX="162.0" layoutY="170.0" prefHeight="26.0" prefWidth="168.0" />
+      <DatePicker fx:id="toDate" layoutX="163.0" layoutY="265.0" prefHeight="26.0" prefWidth="168.0" />
+
+      <Spinner fx:id="fromHourTime" layoutX="165.0" layoutY="220.0" prefHeight="26.0" prefWidth="55.0" />
+      <Spinner fx:id="fromMinuteTime" layoutX="219.0" layoutY="220.0" prefHeight="26.0" prefWidth="55.0" />
+      <Spinner fx:id="fromSecondTime" layoutX="277.0" layoutY="220.0" prefHeight="26.0" prefWidth="55.0" />
+
+       <Spinner fx:id="toHourTime" layoutX="165.0" layoutY="314.0" prefHeight="26.0" prefWidth="55.0" />
+       <Spinner fx:id="toMinuteTime" layoutX="219.0" layoutY="314.0" prefHeight="26.0" prefWidth="55.0" />
+       <Spinner fx:id="toSecondTime" layoutX="277.0" layoutY="314.0" prefHeight="26.0" prefWidth="55.0" />
+      <Label layoutX="21.0" layoutY="225.0" text="PickupTime HH:MM:SS" />
+      <Label layoutX="22.0" layoutY="318.0" text="ReturnTime HH:MM:SS" />
+      <Button layoutX="233.0" layoutY="357.0" mnemonicParsing="false" onAction="#SearchButtonClicked" text="Search Vehicles" />
+      <Separator layoutX="373.0" layoutY="2.0" orientation="VERTICAL" prefHeight="382.0" prefWidth="2.0" />
+      <TableView fx:id="viewTable" layoutX="405.0" layoutY="21.0" prefHeight="242.0" prefWidth="461.0">
+      </TableView>
+      <Button layoutX="738.0" layoutY="314.0" mnemonicParsing="false" onAction="#ReserveVehicle" text="Book Selected Vehicle" />
+      <TextField fx:id="dl" layoutX="412.0" layoutY="314.0" promptText="Driver License" />
+      <Separator layoutX="9.0" layoutY="388.0" prefHeight="2.0" prefWidth="891.0" />
+      <TextField fx:id="confNo" layoutX="17.0" layoutY="395.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter Confirmation Number" />
+      <Button layoutX="409.0" layoutY="397.0" mnemonicParsing="false" onAction="#DeleteReservation" text="Delete This Reservation" />
+      <Separator layoutX="156.0" layoutY="481.0" prefHeight="3.0" prefWidth="480.0" />
+      <Button layoutX="21.0" layoutY="357.0" mnemonicParsing="false" onAction="#DisplayReservation" text="Display All Reservations" />
+      <Separator layoutX="372.0" layoutY="389.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="6.0" />
+      <Button layoutX="214.0" layoutY="396.0" mnemonicParsing="false" text="Select This Reservation" onAction="#SelectReservation" />
+      <TextArea fx:id="resrTextArea"  layoutX="16.0" layoutY="434.0" prefHeight="38.0" prefWidth="657.0" />
+      <Button layoutX="696.0" layoutY="441.0" mnemonicParsing="false" text="Update" onAction="#UpdateReservation"  />
+   </children>
+</AnchorPane>

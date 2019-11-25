@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.ManageCustomerController">
+    <children>
+    <TextField fx:id="dlicense" layoutX="20.0" layoutY="26.0" promptText="Driver License" />
+    <TextField fx:id="cellphone" layoutX="20.0" layoutY="68.0" promptText="Contact Number" />
+    <TextField fx:id="cname" layoutX="257.0" layoutY="26.0" promptText="Name" />
+    <TextField fx:id="caddress" layoutX="257.0" layoutY="68.0" promptText="Address" />
+        <Button layoutX="483.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddCustomer" prefHeight="19.0" prefWidth="92.0" text="Add" />
+        <Button layoutX="20.0" layoutY="229.0" mnemonicParsing="false" onAction="#DisplayCustomer" prefHeight="26.0" prefWidth="149.0" text="Display Customers" />
+        <Separator layoutY="218.0" prefHeight="4.0" prefWidth="575.0" />
+        <TextField fx:id="cdlicense" layoutX="20.0" layoutY="166.0" promptText="Customer Driver License" />
+        <Button layoutX="206.0" layoutY="165.0" mnemonicParsing="false" onAction="#DeleteCustomer" prefHeight="26.0" prefWidth="117.0" text="Delete" />
+        <Separator layoutX="6.0" layoutY="136.0" prefHeight="4.0" prefWidth="563.0" />
+    </children>
+</AnchorPane>

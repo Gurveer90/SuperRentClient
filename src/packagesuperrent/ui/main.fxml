@@ -3,21 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="306.0" prefWidth="392.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.mainController">
+<AnchorPane prefHeight="339.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packagesuperrent.controllers.mainController">
    <children>
-      <Button mnemonicParsing="false" onAction="#ManageVehicleTypeButtonClick"
-              prefHeight="26.0" prefWidth="136.0" text="Manage Vehicle Types" GridPane.rowIndex="1" />
+      <Button layoutX="376.0" layoutY="46.0" mnemonicParsing="false" onAction="#ManageVehicleTypeButtonClick" prefHeight="26.0" prefWidth="142.0" text="Manage Vehicle Types" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button layoutX="48.0" layoutY="46.0" mnemonicParsing="false" onAction="#ManageVehicleButtonClick" prefHeight="26.0" prefWidth="142.0" text="Manage Vehicles" GridPane.columnIndex="2" />
+      <Button layoutX="49.0" layoutY="129.0" mnemonicParsing="false" onAction="#ReservationButtonClick" prefHeight="26.0" prefWidth="141.0" text="Reservations" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Button layoutX="209.0" layoutY="129.0" mnemonicParsing="false" onAction="#RentalButtonClick" prefHeight="26.0" prefWidth="149.0" text="Rental with Confirmation" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Button layoutX="376.0" layoutY="129.0" mnemonicParsing="false" onAction="#ReturnButtonClick" prefHeight="26.0" prefWidth="142.0" text="Returns" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button layoutX="209.0" layoutY="46.0" mnemonicParsing="false" onAction="#ManageCustomerButtonClick" prefHeight="26.0" prefWidth="149.0" text="Manage Customers" GridPane.columnIndex="1" />
+      <Button layoutX="211.0" layoutY="248.0" mnemonicParsing="false" onAction="#ReportsClick" prefHeight="26.0" prefWidth="142.0" text="Reports" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <Button layoutX="209.0" layoutY="163.0" mnemonicParsing="false" onAction="#DirectRentalClick" prefHeight="26.0" prefWidth="142.0" text="Direct Rental" />
+      <Button layoutX="231.0" layoutY="292.0" mnemonicParsing="false" onAction="#ListofTablesClicked" text="List of All Tables" />
    </children>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-</GridPane>
+</AnchorPane>
