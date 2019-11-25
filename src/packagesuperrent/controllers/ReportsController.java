@@ -3,10 +3,16 @@ package packagesuperrent.controllers;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import packagesuperrent.classes.Report;
+import packagesuperrent.classes.Return;
 import packagesuperrent.classes.ReturnReport;
 import packagesuperrent.database.DatabaseConnection;
 
@@ -20,10 +26,6 @@ public class ReportsController {
     ChoiceBox choice;
     @FXML
     DatePicker toDate;
-    @FXML
-    TableView tableReport;
-    @FXML
-    TableView tableReturn;
 
     Boolean mouseEnered =false;
 
@@ -32,23 +34,6 @@ public class ReportsController {
         if(!mouseEnered)
         {
             mouseEnered = true;
-            TableColumn vT = new TableColumn("Date");
-            vT.setCellValueFactory(new PropertyValueFactory<>("date"));
-            TableColumn vT1 = new TableColumn("Location");
-            vT1.setCellValueFactory(new PropertyValueFactory<>("location"));
-            TableColumn vT3 = new TableColumn("Vehicle Type");
-            vT3.setCellValueFactory(new PropertyValueFactory<>("vehicletype"));
-            TableColumn vT4 = new TableColumn("TOTAL RENTALS AT BRANCH");
-            vT4.setCellValueFactory(new PropertyValueFactory<>("c1"));
-            TableColumn vT5 = new TableColumn("NUMBER RENTED OUT");
-            vT5.setCellValueFactory(new PropertyValueFactory<>("c2"));
-            TableColumn vT6 = new TableColumn("Total Revenue");
-            vT6.setCellValueFactory(new PropertyValueFactory<>("tr"));
-            TableColumn vT7 = new TableColumn("Total Revenue of Branch");
-            vT7.setCellValueFactory(new PropertyValueFactory<>("trb"));
-            tableReport.getColumns().addAll(vT,vT1,vT3,vT4,vT5);
-            tableReturn.getColumns().addAll(vT,vT1,vT3,vT4,vT5,vT6,vT7);
-
             for(String s: FXCollections.observableArrayList(
                     "Rental", "Return"))
             {
@@ -60,8 +45,7 @@ public class ReportsController {
                     city.getItems().add(object);
                 }
             }
-            tableReport.setVisible(false);
-            tableReturn.setVisible(false);
+
             city.getSelectionModel()
                     .selectedItemProperty()
                     .addListener((ObservableValue observable, Object oldValue, Object newValue)->{
@@ -84,27 +68,85 @@ public class ReportsController {
         {
             cityValue = city.getValue().toString();
         }
-        tableReport.setVisible(false);
-        tableReturn.setVisible(false);
-
 
         if(choice.getValue().toString().equals("Rental"))
         {
-            tableReport.setVisible(true);
-            tableReport.getItems().clear();
+            TableView table = new TableView();
+            table.setPrefWidth(700);
+            Scene scene = new Scene(new Group());
+            Stage stage = new Stage();
+            stage.setTitle("Report");
+            stage.setWidth(750);
+            stage.setHeight(500);
+            Label label = new Label("Report");
+
+            TableColumn vT = new TableColumn("Date");
+            vT.setCellValueFactory(new PropertyValueFactory<>("date"));
+            TableColumn vT1 = new TableColumn("Location");
+            vT1.setCellValueFactory(new PropertyValueFactory<>("location"));
+            TableColumn vT3 = new TableColumn("Vehicle Type");
+            vT3.setCellValueFactory(new PropertyValueFactory<>("vehicletype"));
+            TableColumn vT4 = new TableColumn("TOTAL RENTALS AT BRANCH");
+            vT4.setCellValueFactory(new PropertyValueFactory<>("c1"));
+            TableColumn vT5 = new TableColumn("NUMBER RENTED OUT");
+            vT5.setCellValueFactory(new PropertyValueFactory<>("c2"));
+
+            table.getColumns().addAll(vT,vT1,vT3,vT4,vT5);
+
             for (Report object: DatabaseConnection.getDatabase().getReports(choice.getValue().toString(), cityValue, location,
                     toDate.getValue().toString())) {
-                tableReport.getItems().add(object);
+                table.getItems().add(object);
             }
+            final VBox vbox = new VBox();
+            vbox.setSpacing(5);
+            vbox.setPadding(new Insets(10, 10, 10, 10));
+            vbox.getChildren().addAll(label, table);
+            ((Group) scene.getRoot()).getChildren().addAll(vbox);
+            stage.setScene(scene);
+            stage.show();
+
         }
         else
         {
-            tableReturn.setVisible(true);
-            tableReturn.getItems().clear();
+
+            TableView table = new TableView();
+            table.setPrefWidth(700);
+            Scene scene = new Scene(new Group());
+            Stage stage = new Stage();
+            stage.setTitle("Report");
+            stage.setWidth(750);
+            stage.setHeight(500);
+            Label label = new Label("Report");
+
+            TableColumn vT = new TableColumn("Date");
+            vT.setCellValueFactory(new PropertyValueFactory<>("date"));
+            TableColumn vT1 = new TableColumn("Location");
+            vT1.setCellValueFactory(new PropertyValueFactory<>("location"));
+            TableColumn vT3 = new TableColumn("Vehicle Type");
+            vT3.setCellValueFactory(new PropertyValueFactory<>("vehicletype"));
+            TableColumn vT4 = new TableColumn("TOTAL RENTALS AT BRANCH");
+            vT4.setCellValueFactory(new PropertyValueFactory<>("c1"));
+            TableColumn vT5 = new TableColumn("NUMBER RENTED OUT");
+            vT5.setCellValueFactory(new PropertyValueFactory<>("c2"));
+            TableColumn vT6 = new TableColumn("Total Revenue");
+            vT6.setCellValueFactory(new PropertyValueFactory<>("tr"));
+            TableColumn vT7 = new TableColumn("Total Revenue of Branch");
+            vT7.setCellValueFactory(new PropertyValueFactory<>("trb"));
+
+
+            table.getColumns().addAll(vT,vT1,vT3,vT4,vT5,vT6,vT7);
+
             for (ReturnReport object: DatabaseConnection.getDatabase().getReturnReports(choice.getValue().toString(), cityValue, location,
                     toDate.getValue().toString())) {
-                tableReturn.getItems().add(object);
+                table.getItems().add(object);
             }
+            final VBox vbox = new VBox();
+            vbox.setSpacing(5);
+            vbox.setPadding(new Insets(10, 10, 10, 10));
+            vbox.getChildren().addAll(label, table);
+            ((Group) scene.getRoot()).getChildren().addAll(vbox);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 

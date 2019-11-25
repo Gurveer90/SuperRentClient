@@ -212,7 +212,8 @@
       <workItem from="1574564414511" duration="34388000" />
       <workItem from="1574630882924" duration="9532000" />
       <workItem from="1574641052597" duration="5201000" />
-      <workItem from="1574656193340" duration="186000" />
+      <workItem from="1574656193340" duration="227000" />
+      <workItem from="1574660445795" duration="2174000" />
     </task>
     <servers />
   </component>
@@ -239,10 +240,35 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/packagesuperrent/controllers/ReservationController.java</url>
           <line>132</line>
           <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
+          <line>1337</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
+          <line>1346</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/database/DatabaseConnectionHandler.java</url>
+          <line>1351</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/controllers/ReportsController.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/packagesuperrent/controllers/ReportsController.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
