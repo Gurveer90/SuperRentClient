@@ -131,19 +131,6 @@ dlicense char(30),
  toDate DATE, 
  toTime TIMESTAMP, PRIMARY KEY(confNo),FOREIGN KEY(vtname) REFERENCES VehicleType ON DELETE CASCADE, FOREIGN KEY(dlicense) REFERENCES Customer ON DELETE CASCADE); 
 
-CREATE TABLE RentInderpal(vlicense int, fromDate DATE, fromTime TIMESTAMP, toDate DATE, toTime TIMESTAMP);
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (2009,TO_DATE('2019-09-01', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-01 01:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-15', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-15 11:16:10', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (2010,TO_DATE('2019-09-02', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-02 02:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-16', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-16 23:16:09', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (103, TO_DATE('2019-09-03', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-03 03:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-17', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-17 16:16:08', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (104, TO_DATE('2019-09-04', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-04 04:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-18', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-18 15:16:04', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (105, TO_DATE('2019-09-05', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-05 05:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-19', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-19  14:16:05', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (106, TO_DATE('2019-09-06', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-06 06:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-20', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-20 16:16:06', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (107, TO_DATE('2019-09-07', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-07 07:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-21', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-21 17:16:07', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (108, TO_DATE('2019-09-08', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-08 08:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-22', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-22 18:16:03', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (109, TO_DATE('2019-09-09', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-09 11:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-23', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-23 11:16:02', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO RentInderpal(vlicense, fromDate, fromTime, toDate, toTime) VALUES (110, TO_DATE('2019-09-10', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-10 12:15:05', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2019-09-25', 'YYYY-MM-DD'), TO_TIMESTAMP('2019-09-24 12:16:01', 'YYYY-MM-DD HH24:MI:SS'));
-
-
 
 CREATE TABLE Return_ (rid int  NOT NULL, rdate DATE, rtime TIMESTAMP, odometer int, fulltank char(30), valueit float(10),PRIMARY KEY (rid), FOREIGN KEY(rid) REFERENCES Rent ON DELETE CASCADE);
 Insert into Vehicle(vlicense, make, model, vyear, color, odometer, vstatus, vtname, vlocation, city) values(101,'Honda', 'Accord',2010,'White', 1000, 'for_rent', 'StandardHybrid', 'Alberta Street', 'Delta');

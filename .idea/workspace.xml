@@ -87,7 +87,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -211,7 +211,8 @@
       <workItem from="1574485022911" duration="49688000" />
       <workItem from="1574564414511" duration="34388000" />
       <workItem from="1574630882924" duration="9532000" />
-      <workItem from="1574641052597" duration="1480000" />
+      <workItem from="1574641052597" duration="5201000" />
+      <workItem from="1574656193340" duration="186000" />
     </task>
     <servers />
   </component>
