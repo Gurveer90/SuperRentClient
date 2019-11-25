@@ -1,0 +1,83 @@
+CREATE TABLE branch(location char(30) , city char(20), PRIMARY KEY (location,city));
+CREATE TABLE VehicleType(vtname char(30), features char(30), wrate float(10), drate float(10), hrate float(10), wirate float(10), dirate float(10), hirate float(10), krate float(10), PRIMARY KEY (vtname));
+CREATE TABLE Vehicle(vid int, vlicense int, make char(30), model char(30), year int, color char(30), odometer int, status char(30), vtname char(30), location char(30), city char(30), PRIMARY KEY (vid), FOREIGN KEY (location, city) REFERENCES branch(location, city), FOREIGN KEY(vtname) REFERENCES VehicleType(vtname));
+CREATE TABLE ForSale (vid int, vlicense int, make char(30), model char(30), year int, color char(30), odometer int,status char(30), vtname char(30), location char(30), city char(30), PRIMARY KEY (vid), FOREIGN KEY (vid) REFERENCES Vehicle, FOREIGN KEY (location, city) REFERENCES branch,FOREIGN KEY(vtname) REFERENCES VehicleType);
+CREATE TABLE ForRent (vid int, vlicense int, make char(30), model char(30), year int, color char(30), odometer int, status char(30), vtname char(30), location char(30), city char(30), PRIMARY KEY (vid), FOREIGN KEY (vid) REFERENCES Vehicle, FOREIGN KEY (location, city) REFERENCES branch,FOREIGN KEY(vtname) REFERENCES VehicleType);
+CREATE TABLE EquipType(etname char(30), drate float(10), hrate float(10),PRIMARY KEY (etname));
+CREATE TABLE Equipment(eid int, etname char(30), status char(30), location char(30), city char(30), PRIMARY KEY (eid),FOREIGN KEY (etname) REFERENCES EquipType, FOREIGN KEY (location, city) REFERENCES branch);
+CREATE TABLE Is_for(etname char(30), vtname char(30), PRIMARY KEY (etname, vtname), FOREIGN KEY (etname) REFERENCES EquipType, FOREIGN KEY(vtname) REFERENCES VehicleType); 
+CREATE TABLE Customer (cellphone char(30), name char(30), address char(30), dlicense char(30), PRIMARY KEY (cellphone)); 
+CREATE TABLE ClubMember (cellphone char(30), points int, fees float(10),PRIMARY KEY (cellphone), FOREIGN KEY (cellphone) REFERENCES Customer); 
+CREATE TABLE Reservation (confNo int, vtname char(30), cellphone char(30), from_Date DATE, from_Time TIMESTAMP, to_Date DATE, to_Time TIMESTAMP, PRIMARY KEY(confNo), FOREIGN KEY(vtname) REFERENCES VehicleType, FOREIGN KEY(cellphone) REFERENCES Customer, FOREIGN KEY(from_Date, from_Time, to_Date, to_Time) REFERENCES TimePeriod); 
+CREATE TABLE TimePeriod(from_Date DATE, from_Time TIMESTAMP, to_Date DATE, to_Time TIMESTAMP, PRIMARY KEY (from_Date,from_Time,to_Date,to_Time));
+CREATE TABLE Reserve_Includes (confNo int, etname char(30),PRIMARY KEY (confNo,etname), FOREIGN KEY(confNo) REFERENCES Reservation, FOREIGN KEY(etname) REFERENCES EquipType);
+CREATE TABLE Rent(rid int, vid int, cellphone char(30), from_Date DATE, from_Time TIMESTAMP, to_Date DATE, to_Time TIMESTAMP, odometer int,cardName char(30), cardNo int,ExpDate DATE, confNo int, PRIMARY KEY (rid), FOREIGN KEY(vid) REFERENCES ForRent, FOREIGN KEY(cellphone) REFERENCES Customer, FOREIGN KEY(from_Date, from_Time, to_Date, to_Time) REFERENCES TimePeriod, FOREIGN KEY(confNo) REFERENCES Reservation);
+CREATE TABLE Rent_Includes (rid int, eid int, PRIMARY KEY (rid,eid), FOREIGN KEY(rid) REFERENCES Rent, FOREIGN KEY(eid) REFERENCES Equipment);
+CREATE TABLE Return_ (rid int, rdate DATE, rtime TIMESTAMP, odometer int, fulltank char(30), valueit float(10),PRIMARY KEY (rid), FOREIGN KEY(rid) REFERENCES Rent);
+Insert into branch(location, city) values ('Burrad Street', 'Vancouver');
+Insert into branch(location, city) values ('Raw Street', 'Vancouver'); 
+Insert into branch(location, city) values ('Scott Road', 'Surrey'); 
+Insert into branch(location, city) values ('Alberta Street', 'Delta'); 
+Insert into branch(location, city) values ('Barnet Road', 'Delta'); 
+Insert into branch(location, city) values ('Albrey Street', 'Burnaby'); 
+Insert into branch(location, city) values ('Austin Road', 'Burnaby'); 
+Insert into branch(location, city) values ('Shine Street', 'Langley'); 
+Insert into branch(location, city) values ('Mia Street', 'Langley'); 
+Insert into branch(location, city) values ('Arts Road', 'Langley'); 
+select * from branch;
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'EconomyGasoline', 'regular gasoline',200,50,2,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'EconomyHybrid', 'hybrid',210,60,4,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'EconomyElectric', 'fully electric',220,70,6,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'CompactGasoline', 'regular gasoline',250,80,8,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'CompactHybrid', 'hybrid',260,90,10,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'CompactElectric', 'fully electric',270,100,12,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'Mid-sizeGasoline', 'regular gasoline',280,110,14,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'Mid-sizeHybrid', 'hybrid',290,120,16,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'Mid-sizeElectric', 'fully electric',300,130,18,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'StandardGasoline','regular gasoline', 310,140,20,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'StandardHybrid', 'hybrid',320,150,22,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'StandardElectric', 'fully electric',330,160,24,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'FullsizeGasoline', 'regular gasoline',340,170,26,40,5,1,1); 
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'FullsizeHybrid', 'hybrid',350,180,28,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'FullsizeElectric', 'fully electric',360,190,30,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'SUVGasoline','regular gasoline',370,200,32,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'SUVHybrid', 'hybrid',380,210,34,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'SUVElectric', 'fully electric',390,220,36,60,9,3,3);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'TruckGasoline','regular gasoline',400,230,38,40,5,1,1);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'TruckHybrid','hybrid',410,240,40,50,7,2,2);
+Insert into VehicleType(vtname, features, wrate, drate, hrate, wirate, dirate , hirate, krate) values( 'TruckElectric','fully electric',420,250,42,60,9,3,3);
+select * from VehicleType;
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city) values(1,101,'Honda', 'Accord',2010,'White', 1000, 'for_rent', 'Mid-sizeGasoline', 'Burrad Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(2,102,'Honda', 'Passport',2011,'Black',2000, 'for_sale', 'SUVGasoline', 'Burrad Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(3,103,'Honda', 'Civic',2015,'Red', 3000, 'for_rent', 'CompactElectric', 'Raw Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(4,104,'Honda', 'Fit',2014,'Grey', 4000, 'for_rent', 'EconomyGasoline', 'Arts Road', 'Langley');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(5,105,'Honda', 'Civic',2019,'Black', 1000, 'for_sale', 'EconomyHybrid', 'Shine Street', 'Langley' );
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(6,106,'Honda', 'Ridgeline',2012,'Red', 2000, 'for_rent', 'TruckGasoline', 'Burrad Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(7,107,'Honda', 'Pilot',2010,'White', 4000, 'for_rent', 'FullsizeElectric', 'Scott Road', 'Surrey');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(8,108,'Honda', 'Insight',2015,'Black', 4000, 'for_rent', 'FullsizeGasoline', 'Burrad Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(9,109,'Honda', 'Jazz',2016,'Red', 6000, 'for_rent', 'StandardGasoline', 'Alberta Street', 'Delta');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(10,110,'Honda', 'CR-V',2017,'White', 5000, 'for_rent', 'StandardElectric','Scott Road', 'Surrey');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(11,111,'Toyota', 'Camry',2018,'Black', 7000, 'for_rent', 'Mid-sizeGasoline', 'Shine Street', 'Langley');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(12,112,'Toyota', 'Camry',2012,'Grey', 8000, 'for_rent', 'Mid-sizeHybrid', 'Shine Street', 'Langley');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(13,113,'Toyota', 'Prius',2014,'Red', 4000, 'for_rent', 'Mid-sizeGasoline', 'Alberta Street', 'Delta');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(14,114,'Toyota', 'Mirai',2016,'White', 1000, 'for_sale', 'Mid-sizeGasoline', 'Burrad Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(15,115,'Toyota', 'Tacoma',2017,'Red', 2000, 'for_rent', 'TruckGasoline', 'Shine Street', 'Langley');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(16,116,'Toyota', 'Tundra',2017,'Black', 9000, 'for_rent', 'TruckHybrid', 'Raw Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(17,117,'Toyota', 'Highlander',2018,'Grey', 4000, 'for_rent', 'SUVGasoline', 'Mia Street', 'Langley');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(18,118,'Toyota', 'Land Cruiser',2019,'White', 5000, 'for_rent', 'SUVHybrid', 'Barnet Road', 'Delta');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(19,119,'Toyota', 'Avalon',2012,'Red', 3000, 'for_rent', 'FullsizeHybrid', 'Raw Street', 'Vancouver');
+Insert into Vehicle(vid, vlicense, make, model, year, color, odometer, status, vtname, location, city)  values(20,120,'Toyota', 'Yaris',2013,'Black', 8000, 'for_rent', 'CompactGasoline', 'Albrey Street', 'Burnaby');
+
+ALTER TABLE Vehicle
+ADD FOREIGN KEY (location, city) REFERENCES branch(location, city);
+DROP CONSTRAINT location, city;
+
+
+
+
+
+
+
+
+
+
