@@ -6,8 +6,21 @@ To execute this project, download source code and enter database, ssh username a
 DatabaseKeys class.
 
 FrontEnd - JavaFXML
+
 SqlConnection - JDBC
+
 Connection - SSH + Database
 
 #Tables
 
+Vehicle
+
+VehicleType
+
+Customer
+
+Rent
+
+Return_
+
+Reservation
