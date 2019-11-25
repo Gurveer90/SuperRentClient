@@ -350,11 +350,18 @@
 
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT Count(vlicense) as total FROM Vehicle WHERE vtname = '"+vehicleType+"' AND " +
                         "vlocation = '"+locationType+"' AND city = '"+city+"' AND vstatus = 'for_rent' AND vlicense NOT IN " +
-                        "(SELECT vlicense FROM Rent WHERE fromTime <= ? AND toTime >= ?)");
+                        "(SELECT vlicense FROM Rent WHERE (fromTime <= ? AND toTime >= ?) or" +
+                        " (fromTime <= ? AND toTime >= ?) or" +
+                        " (fromTime <= ? AND toTime >= ?) or (fromTime >= ? AND toTime <= ?))");
 
                 preparedStatement.setTimestamp(1,fTime);
                 preparedStatement.setTimestamp(2,tTime);
-
+                preparedStatement.setTimestamp(3,tTime);
+                preparedStatement.setTimestamp(4,tTime);
+                preparedStatement.setTimestamp(5,fTime);
+                preparedStatement.setTimestamp(6,fTime);
+                preparedStatement.setTimestamp(7,fTime);
+                preparedStatement.setTimestamp(8,tTime);
                 ResultSet rs = preparedStatement.executeQuery();
 
                 while(rs.next()) {
@@ -389,10 +396,19 @@
 
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicle WHERE vtname = '"+vehicleType+"' AND " +
                         "vlocation = '"+locationType+"' AND city = '"+city+"' AND vstatus = 'for_rent' AND vlicense NOT IN " +
-                        "(SELECT vlicense FROM Rent WHERE fromTime <= ? AND toTime >= ?)");
+                        "(SELECT vlicense FROM Rent WHERE (fromTime <= ? AND toTime >= ?) or (fromTime <= ? AND toTime >= ?) " +
+                        "or (fromTime <= ? AND toTime >= ?)or (fromTime >= ? AND toTime <= ?))");
 
                 preparedStatement.setTimestamp(1,fTime);
                 preparedStatement.setTimestamp(2,tTime);
+
+                preparedStatement.setTimestamp(3,tTime);
+                preparedStatement.setTimestamp(4,tTime);
+                preparedStatement.setTimestamp(5,fTime);
+                preparedStatement.setTimestamp(6,fTime);
+
+                preparedStatement.setTimestamp(7,fTime);
+                preparedStatement.setTimestamp(8,tTime);
                 ResultSet rs = preparedStatement.executeQuery();
                 while(rs.next()) {
                     list.add(new Vehicle(rs.getInt("vlicense"),rs.getString("make"),
@@ -433,10 +449,18 @@
 
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicle WHERE vtname = '"+vehicleType+"' AND " +
                         "vlocation = '"+locationType+"' AND city = '"+city+"' AND vstatus = 'for_rent' AND vlicense NOT IN " +
-                        "(SELECT vlicense FROM Rent WHERE fromTime <= ? AND toTime >= ?)");
+                        "(SELECT vlicense FROM Rent WHERE (fromTime <= ? AND toTime >= ?)  " +
+                        "or (fromTime <= ? AND toTime >= ?) or (fromTime <= ? AND toTime >= ?)" +
+                        "or (fromTime >= ? AND toTime <= ?))");
 
                 preparedStatement.setTimestamp(1,fTime);
                 preparedStatement.setTimestamp(2,tTime);
+                preparedStatement.setTimestamp(3,tTime);
+                preparedStatement.setTimestamp(4,tTime);
+                preparedStatement.setTimestamp(5,fTime);
+                preparedStatement.setTimestamp(6,fTime);
+                preparedStatement.setTimestamp(7,fTime);
+                preparedStatement.setTimestamp(8,fTime);
                 ResultSet rs = preparedStatement.executeQuery();
                 while(rs.next()) {
                     list.add(new Vehicle(rs.getInt("vlicense"),rs.getString("make"),
